@@ -8,6 +8,12 @@ module.exports = {
     host: process.env.DB_HOST || "127.0.0.1",
     dialect: "postgres", // 確保這裡是 'postgres'
     port: process.env.DB_PORT || 5432,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false, // 只有當您無法控制 CA 或在本地測試時才設置為 false
+      },
+    },
   },
   test: {
     username: process.env.DB_USER || "root",
@@ -16,6 +22,12 @@ module.exports = {
     host: process.env.DB_HOST || "127.0.0.1",
     dialect: "postgres", // 確保這裡是 'postgres'
     port: process.env.DB_PORT || 5432,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false, // 只有當您無法控制 CA 或在本地測試時才設置為 false
+      },
+    },
   },
   production: {
     username: process.env.DB_USER || "root",
@@ -24,5 +36,11 @@ module.exports = {
     host: process.env.DB_HOST || "127.0.0.1",
     dialect: "postgres", // 確保這裡是 'postgres'
     port: process.env.DB_PORT || 5432,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false, // 只有當您無法控制 CA 或在本地測試時才設置為 false
+      },
+    },
   },
 }
